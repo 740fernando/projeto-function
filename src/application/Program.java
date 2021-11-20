@@ -1,7 +1,7 @@
 package application;
 
 import entities.Product;
-import util.UpperCaseName;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +18,7 @@ public class Program {
         list.add(new Product("mouse",30.00));
 
         //a função map aplica a funcao em cada elemento da stream, gerando uma nova stream com elementos transformados
-        List<String> names = list.stream().map(new UpperCaseName()).collect(Collectors.toList());
+        List<String> names = list.stream().map(Product::staticUpperCaseName).collect(Collectors.toList());
         names.forEach(System.out::println);
     }
 }
