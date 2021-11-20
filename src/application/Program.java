@@ -18,7 +18,7 @@ public class Program {
         list.add(new Product("mouse",30.00));
 
         //a função map aplica a funcao em cada elemento da stream, gerando uma nova stream com elementos transformados
-        List<String> names = list.stream().map(Product::staticUpperCaseName).collect(Collectors.toList());
+        List<String> names = list.stream().map(Product::nonstaticUpperCaseName).collect(Collectors.toList());
         names.forEach(System.out::println);
     }
 }
