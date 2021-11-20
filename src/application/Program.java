@@ -6,6 +6,7 @@ import entities.Product;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Program {
@@ -17,8 +18,10 @@ public class Program {
         list.add(new Product("Geladeira",800.00));
         list.add(new Product("mouse",30.00));
 
+        Function<Product,String> func = p -> p.getName().toUpperCase();
+
         //a função map aplica a funcao em cada elemento da stream, gerando uma nova stream com elementos transformados
-        List<String> names = list.stream().map(Product::nonstaticUpperCaseName).collect(Collectors.toList());
+        List<String> names = list.stream().map(func).collect(Collectors.toList());
         names.forEach(System.out::println);
     }
 }
